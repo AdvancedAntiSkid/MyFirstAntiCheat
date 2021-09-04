@@ -1,1 +1,14 @@
 <MyFirstAntiCheat>
+  <Details>
+    <Author>AdvancedAntiSkid</author>
+    <Version>1.0</Version>
+   </Details>
+   <Dependencies>
+    <Dependency>
+      <GroupID>org.spigotmc</GroupID>
+      <ArtifactID>spigot-api</ArtifactID>
+      <Version>1.8.8-R0.1-SNAPSHOT</Version>
+      <Scope>provided</Scope>
+    </Dependency>
+   </Dependencies>
+</MyFirstAntiCheat>
