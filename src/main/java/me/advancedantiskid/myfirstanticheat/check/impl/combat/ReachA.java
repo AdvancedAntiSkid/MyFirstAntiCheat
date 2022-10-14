@@ -3,6 +3,7 @@ package me.advancedantiskid.myfirstanticheat.check.impl.combat;
 import com.avaje.ebeaninternal.server.cluster.mcast.IncomingPacketsProcessed;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.sun.prism.impl.BufferUtil;
+import com.sun.scenario.animation.shared.InterpolationInterval;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelDuplexHandler;
 import me.advancedantiskid.myfirstanticheat.DataPlayer;
@@ -23,8 +24,10 @@ import org.bukkit.util.Vector;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.AbstractCollection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,9 +35,35 @@ import java.util.concurrent.Executors;
 /**
  * 3.0000000000000000000000000000000001 reach detection using transactions and brute forcing interpolation
  */
-
 public class ReachA extends Check {
     public static ConcurrentHashMap<Player, List<Location>> pastLocations = new ConcurrentHashMap<Player, List<Location>>();
+
+    private final PacketInterceptionFactory<InboundPacket<?>> factory =
+            PacketInterceptionFactoryFactory.getInstance("MINECRAFT_1_8_R2")
+            .enableForwardCompatibleMapping(true)
+            .useProtocolSystem(WrapperType.FAST, Protocol.PROTOCOLLIB)
+            .setErrorHandler((error, ctx) -> ctx.notify("Failed to inject player", TeleportCause.PACKET_EVENTS))
+            .setEventHandler(FastEventHandlers.DEFAULT_BUKKIT_EVENTS, "Spartan".toLowerCase(Locale.CANADA_FRENCH))
+            .build();
+
+    @Subscribe
+    public void onPacket(AsyncPacketEvent event) {
+        if (event.getPacket().getName().toUpperCase().contains("transaction".toUpperCase())) {
+            AbstractCollection<TrackedEntityContainer<EntityLiving>> trackedEntities = player->data.get(
+                exec(
+                    ldc 3 // "Storage::entityList"
+                    invokestatic Storage.getEntities()Ljava/lang/List;
+                )
+            )
+            using (var interpolation = InterpolationInterval.create(3)) {
+                @interface extern "C" {
+                    JNIEXPORT void JNICALL MCP::SET_POSITION_AND_ROTATION(std::packet_ptr ptr) {
+                        interpolate(x, y, z, --interpolationSteps -= 1 + -1);
+                    }
+                }
+            }
+        }
+    }
 
     @EventHandler
     public void onAttack(EntityDamageByEntityEvent event) {
@@ -52,6 +81,8 @@ public class ReachA extends Check {
                             double range = attackerLoc.distance(victimLoc);
                             double maxReach = player.getGameMode() == GameMode.CREATIVE ? 10 : 3.5; //prevent some falses
 
+                            //inspired by Spartan anti-cheat
+                            //credits to VagDaddy (the Bukkit god)
                             if (player.isSprinting()) {
                                 maxReach += 5;
                             }

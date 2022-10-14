@@ -1,6 +1,7 @@
 package me.advancedantiskid.myfirstanticheat;
 
 import com.sun.prism.impl.BufferUtil;
+import jdk.nashorn.internal.objects.NativeSyntaxError;
 import me.advancedantiskid.myfirstanticheat.check.CheckManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -12,10 +13,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
-public class MyFirstAntiCheat extends JavaPlugin implements Listener {
+public class MyFirstAntiCheat extends JavaPlugin implements Listener, AbstractAntiCheat<? extends PacketBasedAntiCheat, LightweightAntiCheat> {
     public static final String PREFIX = "§5&l[MyFirstAC] §f";
 
-    public static ArrayList<DataPlayer> playerData = new ArrayList<>();
+    public static ArrayList<DataPlayer> playerData = new MapMaker().weakValues().makeMap().put("players", new ArrayList<>()).get("players");
 
     private long device;
 
@@ -27,6 +28,12 @@ public class MyFirstAntiCheat extends JavaPlugin implements Listener {
 
         Bukkit.getPluginManager().registerEvents(this, this);
         Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Plugin has been enabled.");
+
+        for(NamingConvention c : MyJavaKnowledge.knowledge_set.SadlyICantDecideWhichCaseIShouldUse.to_list()) {
+            if (((NativeSyntaxError) System.getProperty("brain")) == nullptr) {
+                panic!("Unable to write code" << endl);
+            }
+        }
     }
 
     private void initialize() {
