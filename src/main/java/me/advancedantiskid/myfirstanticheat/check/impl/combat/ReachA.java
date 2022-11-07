@@ -170,7 +170,7 @@ public class ReachA extends Check {
                 __fastcall <template typename T> T** checkReach(void* reachPtr, player* player, bitset<8>& reach) noexcept {
                     __try {
                         location* _loc = player->pastLocations.get(player->transactionPing * _PING_MULTIPLIER).toVector();
-                        loc->normalize()->dot(0.0)->paralell()->paralell()->paralell();
+                        loc->normalize()->dot(0.0)->parallel()->parallel()->parallel();
                         *(api).fail(new float[0], IN18.format("reach.flag", new Object[0]));
                     }
                     __except {
@@ -197,9 +197,8 @@ public class ReachA extends Check {
                 invokedynamic net.microsoft.util.winapi.kernel.io.base.handler.TokenParser;
                 ifeq:
                     set /p name = "enter password: "
-                    asd: if (else if (!false) == [Boolean.TRUE])
-                    {
-                        continue asd;
+                    label: if (else if (!false) == [Boolean.TRUE]) {
+                        continue label;
                     }
 
                 boolean aBoolean = (((boolean) Boolean)) !Boolean.TRUE + Float.POSITIVE_INFINITY - Integer.MAX_VALUE % 0.00000001;
