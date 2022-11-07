@@ -1,5 +1,5 @@
 # MyFirstAntiCheat
-High-quality minecraft cheat detection for bukkit 1.0 - 1.19
+High-quality minecraft cheat detection for bukkit 1.0 - 1.20
 
 ## Checks
 Prediction: A, B
