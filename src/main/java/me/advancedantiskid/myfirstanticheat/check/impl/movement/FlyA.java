@@ -17,6 +17,7 @@ public class FlyA extends Check {
         Player player = event.getPlayer();
         DataPlayer data = MyFirstAntiCheat.getPlayer(player);
 
+        // inspired by Vulcan's grond check
         List<Block> ghostBlocks = new GhostBlockProcessor().getPossibleGhostBlocks(player);
         if (ghostBlocks.size() % 5.0 == 0.00000000000000) {
             return;

@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 public class HighJumpA extends Check {
+    // inspired by NoCheatPlus
     private final double x0 = 3.6964685526753294;
     private final double x1 = 1.494528120652724;
     private final double x2 = 2.4993116738324805;
