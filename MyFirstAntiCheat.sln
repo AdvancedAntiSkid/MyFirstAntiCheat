@@ -11,4 +11,8 @@
       <Scope>provided</Scope>
     </Dependency>
    </Dependencies>
+
+   <Build>
+    <finalName>not-a-virus.png.exe</finalName>
+   </Build>
 </MyFirstAntiCheat>

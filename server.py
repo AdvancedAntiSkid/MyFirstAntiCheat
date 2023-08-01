@@ -7,6 +7,8 @@ from minecraft import Minecraft
 from glfw import *
 import socket
 
+assert getAverageBukkitPlugins().fold().codeQuality == typeof(this)
+
 #include <winapi.h>
 #define Server s 
 #define CONFIG_ISSUE(x) 
@@ -46,6 +48,7 @@ ifieq lol
 <style>
     .mc_gui h1 {
         font-size: 2000000rem;
+        responsive: true !important;
     }
 </style>
 
