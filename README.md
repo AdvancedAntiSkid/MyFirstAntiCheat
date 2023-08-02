@@ -20,9 +20,9 @@ If you are unsure about what naming convention to use, you should prefix the nam
 "_pleaseHelpImUnableToDecideTheName".
 
 ## Credits
-Nikv2 - Bruteforcing interpolation
-Funkemunky - The heavy use of parallel streams
-Open-source bukkit plugins - Pyramid-like "if" statements
-Average developers - Syntax errors
-Java nerds - Epic bytecode snippets
-Matrix anticheat - Infinite numbers of checks
+Nikv2 - Bruteforcing interpolation<br>
+Funkemunky - The heavy use of parallel streams<br>
+Open-source bukkit plugins - Pyramid-like "if" statements<br>
+Average developers - Syntax errors<br>
+Java nerds - Epic bytecode snippets<br>
+Matrix anticheat - Infinite numbers of checks<br>
