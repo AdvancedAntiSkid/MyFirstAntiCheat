@@ -1,5 +1,7 @@
 # MyFirstAntiCheat
-High-quality minecraft cheat detection for bukkit 1.0 - 1.30.0.1.0.1-ALPHA-HOTFIX10000
+High-quality minecraft cheat detection for bukkit 1.0 - 1.30.0.1.0.1-ALPHA-HOTFIX1337
+
+This is obviously a parody of well-known terrible anti-cheats, please do not take this seriously.
 
 ## Checks
 Prediction: A, B
@@ -25,4 +27,4 @@ Funkemunky - The heavy use of parallel streams<br>
 Open-source bukkit plugins - Pyramid-like "if" statements<br>
 Average developers - Syntax errors<br>
 Java nerds - Epic bytecode snippets<br>
-Matrix anticheat - Infinite numbers of checks<br>
+Matrix anticheat - Infinite number of checks<br>
